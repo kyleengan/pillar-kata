@@ -1,24 +1,24 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class RomanNumeralTest {
 
+    private RomanNumeral subject;
+
+    @Before
+    public void setup() {
+        subject = new RomanNumeral();
+    }
+
     @Test
     public void shouldReturnIForInputOf1() {
-        RomanNumeral subject = new RomanNumeral();
-
-        String result = subject.convertToRomanNumeral(1);
-
-        assertEquals("I", result);
+        assertEquals("I", subject.convertToRomanNumeral(1));
     }
 
     @Test
     public void shouldReturnIIForInputOf2() {
-        RomanNumeral subject = new RomanNumeral();
-
-        String result = subject.convertToRomanNumeral(2);
-
-        assertEquals("II", result);
+        assertEquals("II", subject.convertToRomanNumeral(2));
     }
 }
