@@ -1,8 +1,9 @@
 
 public class ArabicToRomanNumeralConverter {
 
-    private String[] ROMAN_ONES_DIGITS = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
-    private String[] ROMAN_TENS_DIGITS = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    private String[] ROMAN_ONES_DIGITS     = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    private String[] ROMAN_TENS_DIGITS     = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+    private String[] ROMAN_HUNDREDS_DIGITS = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
 
     public String convertToRomanNumeral(int input) {
         String returnValue;
@@ -18,6 +19,9 @@ public class ArabicToRomanNumeralConverter {
         return returnValue;
     }
 
+    protected String convertArabicHundredsDigitToRomanNumeral(int hundredsDigit) {
+        return ROMAN_HUNDREDS_DIGITS[hundredsDigit];
+    }
 
     public String convertArabicTensDigitToRomanNumeral(int tensDigit) {
         return ROMAN_TENS_DIGITS[tensDigit];
