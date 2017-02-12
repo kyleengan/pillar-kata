@@ -55,6 +55,14 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void shouldReturnCorrectValuesForThousandsDigit() {
+        assertEquals("", subject.convertArabicThousandsDigitToRomanNumeral(0));
+        assertEquals("M", subject.convertArabicThousandsDigitToRomanNumeral(1));
+        assertEquals("MM", subject.convertArabicThousandsDigitToRomanNumeral(2));
+        assertEquals("MMM", subject.convertArabicThousandsDigitToRomanNumeral(3));
+    }
+
+    @Test
     public void shouldReturnCorrectValuesForSelectedTwoDigitNumbers() {
         assertEquals("XI", subject.convertToRomanNumeral(11));
         assertEquals("XXII", subject.convertToRomanNumeral(22));
