@@ -13,12 +13,16 @@ public class RomanNumeralTest {
     }
 
     @Test
-    public void shouldReturnIForInputOf1() {
+    public void shouldReturnCorrectValueForOnesDigit() {
+        assertEquals("", subject.convertToRomanNumeral(0));
         assertEquals("I", subject.convertToRomanNumeral(1));
-    }
-
-    @Test
-    public void shouldReturnIIForInputOf2() {
         assertEquals("II", subject.convertToRomanNumeral(2));
+        assertEquals("III", subject.convertToRomanNumeral(3));
+        assertEquals("IV", subject.convertToRomanNumeral(4));
+        assertEquals("V", subject.convertToRomanNumeral(5));
+        assertEquals("VI", subject.convertToRomanNumeral(6));
+        assertEquals("VII", subject.convertToRomanNumeral(7));
+        assertEquals("VIII", subject.convertToRomanNumeral(8));
+        assertEquals("IX", subject.convertToRomanNumeral(9));
     }
 }
