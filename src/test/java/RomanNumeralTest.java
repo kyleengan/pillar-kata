@@ -12,4 +12,13 @@ public class RomanNumeralTest {
 
         assertEquals("I", result);
     }
+
+    @Test
+    public void shouldReturnIIForInputOf2() {
+        RomanNumeral subject = new RomanNumeral();
+
+        String result = subject.convertToRomanNumeral(2);
+
+        assertEquals("II", result);
+    }
 }
