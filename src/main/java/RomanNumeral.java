@@ -5,7 +5,17 @@ public class RomanNumeral {
     public String convertToRomanNumeral(int input) {
         String returnValue = "";
 
-        switch (input) {
+        int onesDigit = input % 10;
+
+        returnValue += convertArabicOnesDigitToRomanNumeral(onesDigit);
+
+        return returnValue;
+    }
+
+    public String convertArabicOnesDigitToRomanNumeral(int onesDigit) {
+        String returnValue = "";
+
+        switch (onesDigit) {
             case 1:
                 returnValue = "I";
                 break;
