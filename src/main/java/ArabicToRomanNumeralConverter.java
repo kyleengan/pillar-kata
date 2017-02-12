@@ -16,6 +16,11 @@ public class ArabicToRomanNumeralConverter {
         int tensDigit = input % 100 / 10;
         returnValue = convertArabicTensDigitToRomanNumeral(tensDigit) + returnValue;
 
+        input -= input % 100;
+
+        int hundredsDigit = input % 1000 / 100;
+        returnValue = convertArabicHundredsDigitToRomanNumeral(hundredsDigit) + returnValue;
+
         return returnValue;
     }
 
