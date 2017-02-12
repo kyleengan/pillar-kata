@@ -25,4 +25,18 @@ public class RomanNumeralTest {
         assertEquals("VIII", subject.convertToRomanNumeral(8));
         assertEquals("IX", subject.convertToRomanNumeral(9));
     }
+
+    @Test
+    public void shouldReturnCorrectValueForTensDigit() {
+        assertEquals("", subject.convertToRomanNumeral(0));
+        assertEquals("X", subject.convertToRomanNumeral(10));
+        assertEquals("XX", subject.convertToRomanNumeral(20));
+        assertEquals("XXX", subject.convertToRomanNumeral(30));
+        assertEquals("XL", subject.convertToRomanNumeral(40));
+        assertEquals("L", subject.convertToRomanNumeral(50));
+        assertEquals("LX", subject.convertToRomanNumeral(60));
+        assertEquals("LXX", subject.convertToRomanNumeral(70));
+        assertEquals("LXXX", subject.convertToRomanNumeral(80));
+        assertEquals("XC", subject.convertToRomanNumeral(90));
+    }
 }
