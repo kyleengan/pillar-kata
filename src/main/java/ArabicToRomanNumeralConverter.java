@@ -23,11 +23,11 @@ public class ArabicToRomanNumeralConverter {
         return ROMAN_HUNDREDS_DIGITS[hundredsDigit];
     }
 
-    public String convertArabicTensDigitToRomanNumeral(int tensDigit) {
+    protected String convertArabicTensDigitToRomanNumeral(int tensDigit) {
         return ROMAN_TENS_DIGITS[tensDigit];
     }
 
-    public String convertArabicOnesDigitToRomanNumeral(int onesDigit) {
+    protected String convertArabicOnesDigitToRomanNumeral(int onesDigit) {
         return ROMAN_ONES_DIGITS[onesDigit];
     }
 }

@@ -14,30 +14,30 @@ public class ArabicToRomanNumeralConverterTest {
 
     @Test
     public void shouldReturnCorrectValueForOnesDigit() {
-        assertEquals("", subject.convertToRomanNumeral(0));
-        assertEquals("I", subject.convertToRomanNumeral(1));
-        assertEquals("II", subject.convertToRomanNumeral(2));
-        assertEquals("III", subject.convertToRomanNumeral(3));
-        assertEquals("IV", subject.convertToRomanNumeral(4));
-        assertEquals("V", subject.convertToRomanNumeral(5));
-        assertEquals("VI", subject.convertToRomanNumeral(6));
-        assertEquals("VII", subject.convertToRomanNumeral(7));
-        assertEquals("VIII", subject.convertToRomanNumeral(8));
-        assertEquals("IX", subject.convertToRomanNumeral(9));
+        assertEquals("", subject.convertArabicOnesDigitToRomanNumeral(0));
+        assertEquals("I", subject.convertArabicOnesDigitToRomanNumeral(1));
+        assertEquals("II", subject.convertArabicOnesDigitToRomanNumeral(2));
+        assertEquals("III", subject.convertArabicOnesDigitToRomanNumeral(3));
+        assertEquals("IV", subject.convertArabicOnesDigitToRomanNumeral(4));
+        assertEquals("V", subject.convertArabicOnesDigitToRomanNumeral(5));
+        assertEquals("VI", subject.convertArabicOnesDigitToRomanNumeral(6));
+        assertEquals("VII", subject.convertArabicOnesDigitToRomanNumeral(7));
+        assertEquals("VIII", subject.convertArabicOnesDigitToRomanNumeral(8));
+        assertEquals("IX", subject.convertArabicOnesDigitToRomanNumeral(9));
     }
 
     @Test
     public void shouldReturnCorrectValueForTensDigit() {
-        assertEquals("", subject.convertToRomanNumeral(0));
-        assertEquals("X", subject.convertToRomanNumeral(10));
-        assertEquals("XX", subject.convertToRomanNumeral(20));
-        assertEquals("XXX", subject.convertToRomanNumeral(30));
-        assertEquals("XL", subject.convertToRomanNumeral(40));
-        assertEquals("L", subject.convertToRomanNumeral(50));
-        assertEquals("LX", subject.convertToRomanNumeral(60));
-        assertEquals("LXX", subject.convertToRomanNumeral(70));
-        assertEquals("LXXX", subject.convertToRomanNumeral(80));
-        assertEquals("XC", subject.convertToRomanNumeral(90));
+        assertEquals("", subject.convertArabicTensDigitToRomanNumeral(0));
+        assertEquals("X", subject.convertArabicTensDigitToRomanNumeral(1));
+        assertEquals("XX", subject.convertArabicTensDigitToRomanNumeral(2));
+        assertEquals("XXX", subject.convertArabicTensDigitToRomanNumeral(3));
+        assertEquals("XL", subject.convertArabicTensDigitToRomanNumeral(4));
+        assertEquals("L", subject.convertArabicTensDigitToRomanNumeral(5));
+        assertEquals("LX", subject.convertArabicTensDigitToRomanNumeral(6));
+        assertEquals("LXX", subject.convertArabicTensDigitToRomanNumeral(7));
+        assertEquals("LXXX", subject.convertArabicTensDigitToRomanNumeral(8));
+        assertEquals("XC", subject.convertArabicTensDigitToRomanNumeral(9));
     }
 
     @Test
