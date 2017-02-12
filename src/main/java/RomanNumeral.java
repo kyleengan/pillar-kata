@@ -1,6 +1,8 @@
 
 public class RomanNumeral {
 
+    private String[] ROMAN_ONES_DIGITS = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+    private String[] ROMAN_TENS_DIGITS = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
 
     public String convertToRomanNumeral(int input) {
         String returnValue;
@@ -18,80 +20,10 @@ public class RomanNumeral {
 
 
     public String convertArabicTensDigitToRomanNumeral(int tensDigit) {
-        String returnValue = "";
-
-        switch (tensDigit) {
-            case 1:
-                returnValue = "X";
-                break;
-            case 2:
-                returnValue = "XX";
-                break;
-            case 3:
-                returnValue = "XXX";
-                break;
-            case 4:
-                returnValue = "XL";
-                break;
-            case 5:
-                returnValue = "L";
-                break;
-            case 6:
-                returnValue = "LX";
-                break;
-            case 7:
-                returnValue = "LXX";
-                break;
-            case 8:
-                returnValue = "LXXX";
-                break;
-            case 9:
-                returnValue = "XC";
-                break;
-            case 0:
-                returnValue = "";
-                break;
-        }
-
-        return returnValue;
+        return ROMAN_TENS_DIGITS[tensDigit];
     }
 
     public String convertArabicOnesDigitToRomanNumeral(int onesDigit) {
-        String returnValue = "";
-
-        switch (onesDigit) {
-            case 1:
-                returnValue = "I";
-                break;
-            case 2:
-                returnValue = "II";
-                break;
-            case 3:
-                returnValue = "III";
-                break;
-            case 4:
-                returnValue = "IV";
-                break;
-            case 5:
-                returnValue = "V";
-                break;
-            case 6:
-                returnValue = "VI";
-                break;
-            case 7:
-                returnValue = "VII";
-                break;
-            case 8:
-                returnValue = "VIII";
-                break;
-            case 9:
-                returnValue = "IX";
-                break;
-            case 0:
-                returnValue = "";
-                break;
-        }
-
-        return returnValue;
+        return ROMAN_ONES_DIGITS[onesDigit];
     }
 }
