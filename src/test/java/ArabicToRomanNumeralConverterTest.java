@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class ArabicToRomanNumeralConverterTest {
 
@@ -60,6 +61,18 @@ public class ArabicToRomanNumeralConverterTest {
         assertEquals("M", subject.convertArabicThousandsDigitToRomanNumeral(1));
         assertEquals("MM", subject.convertArabicThousandsDigitToRomanNumeral(2));
         assertEquals("MMM", subject.convertArabicThousandsDigitToRomanNumeral(3));
+    }
+
+    @Test
+    public void shouldThrowAnIllegalArgumentExceptionForAThousandsDigitGreaterThan3() {
+        try {
+            subject.convertArabicThousandsDigitToRomanNumeral(4);
+            fail("Should have received an exception for a thousands digit > 3");
+        } catch (IllegalArgumentException iae) {
+            assertEquals("This tool can only convert numbers up to 3,999.  Please try again.", iae.getMessage());
+        } catch (Throwable t) {
+            fail("Unexpected throwable encountered: " + toString());
+        }
     }
 
     @Test

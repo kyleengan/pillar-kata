@@ -26,6 +26,9 @@ public class ArabicToRomanNumeralConverter {
     }
 
     protected String convertArabicThousandsDigitToRomanNumeral(int thousandsDigit) {
+        if (thousandsDigit >= 4) {
+            throw new IllegalArgumentException ("This tool can only convert numbers up to 3,999.  Please try again.");
+        }
         return ROMAN_THOUSANDS_DIGITS[thousandsDigit];
     }
 
