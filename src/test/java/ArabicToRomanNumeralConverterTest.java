@@ -100,4 +100,17 @@ public class ArabicToRomanNumeralConverterTest {
         assertEquals("DCCCLXXXVIII", subject.convertToRomanNumeral(888));
         assertEquals("CMXCIX", subject.convertToRomanNumeral(999));
     }
+
+    @Test
+    public void shouldReturnCorrectValuesForSelectedFourDigitNumbers() {
+        assertEquals("MCXI", subject.convertToRomanNumeral(1111));
+        assertEquals("MMCCXXII", subject.convertToRomanNumeral(2222));
+        assertEquals("MMMCCCXXXIII", subject.convertToRomanNumeral(3333));
+        assertEquals("MMMCDXLIV", subject.convertToRomanNumeral(3444));
+        assertEquals("MMMDLV", subject.convertToRomanNumeral(3555));
+        assertEquals("MMMDCLXVI", subject.convertToRomanNumeral(3666));
+        assertEquals("MMMDCCLXXVII", subject.convertToRomanNumeral(3777));
+        assertEquals("MMMDCCCLXXXVIII", subject.convertToRomanNumeral(3888));
+        assertEquals("MMMCMXCIX", subject.convertToRomanNumeral(3999));
+    }
 }

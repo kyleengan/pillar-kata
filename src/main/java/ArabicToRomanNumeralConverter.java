@@ -22,6 +22,11 @@ public class ArabicToRomanNumeralConverter {
         int hundredsDigit = input % 1000 / 100;
         returnValue = convertArabicHundredsDigitToRomanNumeral(hundredsDigit) + returnValue;
 
+        input -= input % 1000;
+
+        int thousandsDigit = input % 10000 / 1000;
+        returnValue = convertArabicThousandsDigitToRomanNumeral(thousandsDigit) + returnValue;
+
         return returnValue;
     }
 
