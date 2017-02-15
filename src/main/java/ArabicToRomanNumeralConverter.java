@@ -6,6 +6,11 @@ public class ArabicToRomanNumeralConverter {
     private String[] ROMAN_HUNDREDS_DIGITS  = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
     private String[] ROMAN_THOUSANDS_DIGITS = {"", "M", "MM", "MMM"};
 
+    public void run(String convertMe) {
+        int numberToConvert = Integer.parseInt(convertMe);
+        convertToRomanNumeral(numberToConvert);
+    }
+
     public String convertToRomanNumeral(int input) {
         String returnValue;
 

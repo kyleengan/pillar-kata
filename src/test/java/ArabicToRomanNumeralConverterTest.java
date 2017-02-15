@@ -14,6 +14,11 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void canBeRunGivenAStringConvertibleToAnInteger() {
+        subject.run("123");
+    }
+
+    @Test
     public void shouldReturnCorrectValueForOnesDigit() {
         assertEquals("", subject.convertArabicOnesDigitToRomanNumeral(0));
         assertEquals("I", subject.convertArabicOnesDigitToRomanNumeral(1));
