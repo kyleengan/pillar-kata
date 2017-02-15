@@ -26,11 +26,6 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
-    public void canBeRunGivenAStringConvertibleToAnInteger() {
-        subject.run("123");
-    }
-
-    @Test
     public void givenSuccessfulExecution_willOutputResultToConsole() {
         subject.run("123");
 
