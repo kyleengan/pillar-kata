@@ -1,5 +1,9 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -8,14 +12,29 @@ public class ArabicToRomanNumeralConverterTest {
 
     private ArabicToRomanNumeralConverter subject;
 
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
     @Before
     public void setup() {
         subject = new ArabicToRomanNumeralConverter();
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @After
+    public void cleanup() {
+        System.setOut(null);
     }
 
     @Test
     public void canBeRunGivenAStringConvertibleToAnInteger() {
         subject.run("123");
+    }
+
+    @Test
+    public void givenSuccessfulExecution_willOutputResultToConsole() {
+        subject.run("123");
+
+        assertEquals("CXXIII" + System.lineSeparator(), outContent.toString());
     }
 
     @Test

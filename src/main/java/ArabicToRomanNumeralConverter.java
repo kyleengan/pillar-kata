@@ -8,7 +8,7 @@ public class ArabicToRomanNumeralConverter {
 
     public void run(String convertMe) {
         int numberToConvert = Integer.parseInt(convertMe);
-        convertToRomanNumeral(numberToConvert);
+        System.out.println(convertToRomanNumeral(numberToConvert));
     }
 
     public String convertToRomanNumeral(int input) {
