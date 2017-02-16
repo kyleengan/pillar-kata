@@ -7,8 +7,11 @@ public class ArabicToRomanNumeralConverter {
     private String[] ROMAN_THOUSANDS_DIGITS = {"", "M", "MM", "MMM"};
 
     public void run(String convertMe) {
+        if (convertMe == null) {
+            convertMe = "";
+        }
         try {
-            int numberToConvert = Integer.parseInt(convertMe);
+            int numberToConvert = Integer.parseInt(convertMe.replaceAll(",", ""));
             System.out.println(convertToRomanNumeral(numberToConvert));
         } catch (NumberFormatException nfe) {
             System.out.println ("Error: '" + convertMe + "' is not an integer.  Please try again with a number between 1 and 3,999.");

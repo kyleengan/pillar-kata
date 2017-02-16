@@ -44,8 +44,15 @@ public class ArabicToRomanNumeralConverterTest {
     public void givenANullString_willOutputAnErrorToConsole() {
         subject.run(null);
 
-        assertEquals("Error: 'null' is not an integer.  Please try again with a number between 1 and 3,999." + System.lineSeparator(),
+        assertEquals("Error: '' is not an integer.  Please try again with a number between 1 and 3,999." + System.lineSeparator(),
                 outContent.toString());
+    }
+
+    @Test
+    public void givenANumberAsAStringWithCommas_willParseNumberSuccessfullyAndOutputResultToConsole() {
+        subject.run("1,123");
+
+        assertEquals("MCXXIII" + System.lineSeparator(), outContent.toString());
     }
 
     @Test
