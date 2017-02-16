@@ -70,6 +70,8 @@ public class ArabicToRomanNumeralConverter {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("Error: No argument received.  Please run this utility again with a number between 1 and 3,999");
+        } else if (args.length > 1) {
+            System.out.println("Error: Too many arguments received.  Please run this utility again with a number between 1 and 3,999");
         }
     }
 }
