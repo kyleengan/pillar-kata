@@ -33,6 +33,22 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void givenAStringThatDoesNotConvertToAnInteger_willOutputAnErrorToConsole() {
+        subject.run("hahaha");
+
+        assertEquals("Error: 'hahaha' is not an integer.  Please try again with a number between 1 and 3,999." + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
+    public void givenANullString_willOutputAnErrorToConsole() {
+        subject.run(null);
+
+        assertEquals("Error: 'null' is not an integer.  Please try again with a number between 1 and 3,999." + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
     public void shouldReturnCorrectValueForOnesDigit() {
         assertEquals("", subject.convertArabicOnesDigitToRomanNumeral(0));
         assertEquals("I", subject.convertArabicOnesDigitToRomanNumeral(1));
