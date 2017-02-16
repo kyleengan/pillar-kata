@@ -15,7 +15,9 @@ public class ArabicToRomanNumeralConverter {
             int numberToConvert = Integer.parseInt(convertMe.replaceAll(",", ""));
             System.out.println(convertToRomanNumeral(numberToConvert));
         } catch (NumberFormatException nfe) {
-            System.out.println ("Error: '" + convertMe + "' is not an integer.  Please try again with a number between 1 and 3,999.");
+            System.out.println("Error: '" + convertMe + "' is not an integer.  Please try again with a number between 1 and 3,999.");
+        } catch (IllegalArgumentException iae) {
+            System.out.println("Error: This tool can only convert numbers up to 3,999.  Please try again with a number between 1 and 3,999.");
         }
     }
 
