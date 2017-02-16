@@ -33,6 +33,14 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void givenANumberAsAStringWithDecimalPoints_willOutputAnErrorToConsole() {
+        subject.run("1.123");
+
+        assertEquals("Error: '1.123' is not an integer.  Please try again with a number between 1 and 3,999." + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
     public void givenAStringThatDoesNotConvertToAnInteger_willOutputAnErrorToConsole() {
         subject.run("hahaha");
 

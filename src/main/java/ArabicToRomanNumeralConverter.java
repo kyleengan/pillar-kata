@@ -8,8 +8,9 @@ public class ArabicToRomanNumeralConverter {
 
     public void run(String convertMe) {
         if (convertMe == null) {
-            convertMe = "";
+            convertMe = "";     // Let the number format handling catch this, avoid logic duplication
         }
+
         try {
             int numberToConvert = Integer.parseInt(convertMe.replaceAll(",", ""));
             System.out.println(convertToRomanNumeral(numberToConvert));
