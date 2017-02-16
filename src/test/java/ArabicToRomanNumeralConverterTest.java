@@ -42,6 +42,15 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void whenRunWithANumberAsAString_willOutputResultToConsole() {
+        String[] args = {"123"};
+        ArabicToRomanNumeralConverter.main(args);
+
+        assertEquals("CXXIII" + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
     public void givenSuccessfulExecution_willOutputResultToConsole() {
         subject.run("123");
 
