@@ -20,7 +20,7 @@ public class ArabicToRomanNumeralConverter {
 
         } catch (IllegalArgumentException iae) {
             System.out.println("Error: This tool can only convert numbers up to 3,999.  Please try again with a number between 1 and 3,999.");
-            
+
         }
     }
 
@@ -65,5 +65,11 @@ public class ArabicToRomanNumeralConverter {
 
     protected String convertArabicOnesDigitToRomanNumeral(int onesDigit) {
         return ROMAN_ONES_DIGITS[onesDigit];
+    }
+
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            System.out.println("Error: No argument received.  Please run this utility again with a number between 1 and 3,999");
+        }
     }
 }

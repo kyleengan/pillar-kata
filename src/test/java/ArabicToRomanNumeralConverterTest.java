@@ -26,6 +26,14 @@ public class ArabicToRomanNumeralConverterTest {
     }
 
     @Test
+    public void whenRunWithoutAnArgument_willOutputAnErrorToConsole() {
+        ArabicToRomanNumeralConverter.main(new String[0]);
+
+        assertEquals("Error: No argument received.  Please run this utility again with a number between 1 and 3,999" + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
     public void givenSuccessfulExecution_willOutputResultToConsole() {
         subject.run("123");
 
