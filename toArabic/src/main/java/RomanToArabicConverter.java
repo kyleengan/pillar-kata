@@ -19,6 +19,11 @@ public class RomanToArabicConverter {
     public int convertHundredsDigit(String romanHundredsDigit) {
         int returnVal = 0;
 
+        if (romanHundredsDigit.contains("CD")) {
+            returnVal += 400;
+            romanHundredsDigit = romanHundredsDigit.replaceAll("CD", "");
+        }
+
         for (int c = 0; c < romanHundredsDigit.length(); c++) {
             if (romanHundredsDigit.charAt(c) == 'C') {
                 returnVal += 100;
