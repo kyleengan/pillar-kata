@@ -2,16 +2,22 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
 import static org.junit.Assert.*;
 
 
 public class RomanToArabicConverterTest {
 
-    RomanToArabicConverter subject;
+    private RomanToArabicConverter subject;
+
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
     public void setup() {
         subject = new RomanToArabicConverter();
+        System.setOut(new PrintStream(outContent));
     }
 
     @Test
@@ -144,5 +150,23 @@ public class RomanToArabicConverterTest {
     @Test
     public void shouldBeCaseInsensitive() {
         assertEquals(3888, subject.convert("mMmdcCclxXxviIi"));
+    }
+
+    @Test
+    public void whenGivenANonRomanNumeralShouldDisplayAnErrorToTheConsole() {
+        String[] args = {"moohaha"};
+
+        RomanToArabicConverter.main(args);
+
+        assertEquals("Error: 'moohaha' is not a roman numeral between I and MMMCMXCIX.  Please try again." + System.lineSeparator(), outContent.toString());
+    }
+
+    @Test
+    public void whenGivenABadRomanNumeralShouldDisplayAnErrorToTheConsole() {
+        String[] args = {"MMXXCCII"};
+
+        RomanToArabicConverter.main(args);
+
+        assertEquals("Error: 'MMXXCCII' is not a roman numeral between I and MMMCMXCIX.  Please try again." + System.lineSeparator(), outContent.toString());
     }
 }

@@ -115,9 +115,8 @@ public class RomanToArabicConverter {
     }
 
     public static void main(String[] args) {
-        /// UNTESTED TEMPORARY CODE
-        RomanToArabicConverter converter = new RomanToArabicConverter();
-        System.out.println(converter.convert(args[0]));
-        /// UNTESTED TEMPORARY CODE
+        if ( ! args[0].matches("^(M*)?((CM)?(CD)?D?C*)?((XC)?(XL)?L?X*)?((IX)?(IV)?V?I*)?$")) {
+            System.out.println ("Error: '" + args[0] + "' is not a roman numeral between I and MMMCMXCIX.  Please try again.");
+        }
     }
 }
