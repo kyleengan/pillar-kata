@@ -84,4 +84,11 @@ public class RomanToArabicConverterTest {
         assertEquals(88, subject.convert("LXXXVIII"));
         assertEquals(99, subject.convert("XCIX"));
     }
+
+    @Test
+    public void shouldConvertCsAppropriately() {
+        assertEquals(100, subject.convertHundredsDigit("C"));
+        assertEquals(200, subject.convertHundredsDigit("CC"));
+        assertEquals(300, subject.convertHundredsDigit("CCC"));
+    }
 }

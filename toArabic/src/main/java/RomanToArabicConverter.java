@@ -9,13 +9,23 @@ public class RomanToArabicConverter {
         roman = truncateOnesDigit(roman);
         returnVal += convertTensDigit(roman);
 
-
-
         return returnVal;
     }
 
     private String truncateOnesDigit(String roman) {
         return roman.replaceAll("((IX)?(IV)?V?I*)", "");
+    }
+
+    public int convertHundredsDigit(String romanHundredsDigit) {
+        int returnVal = 0;
+
+        for (int c = 0; c < romanHundredsDigit.length(); c++) {
+            if (romanHundredsDigit.charAt(c) == 'C') {
+                returnVal += 100;
+            }
+        }
+
+        return returnVal;
     }
 
     public int convertTensDigit(String romanTensDigit) {
