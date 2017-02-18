@@ -140,4 +140,9 @@ public class RomanToArabicConverterTest {
         assertEquals(2222, subject.convert("MMCCXXII"));
         assertEquals(3333, subject.convert("MMMCCCXXXIII"));
     }
+
+    @Test
+    public void shouldBeCaseInsensitive() {
+        assertEquals(3888, subject.convert("mMmdcCclxXxviIi"));
+    }
 }

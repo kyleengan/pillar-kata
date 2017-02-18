@@ -5,6 +5,8 @@ public class RomanToArabicConverter {
     public int convert(String roman) {
         int returnVal = 0;
 
+        roman = roman.toUpperCase();
+
         returnVal += convertOnesDigit(roman);
         roman = truncateOnesDigit(roman);
 
