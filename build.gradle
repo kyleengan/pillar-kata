@@ -1,19 +1,48 @@
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+subprojects {
+    apply plugin: 'java'
+    sourceCompatibility = 1.7
 
-sourceCompatibility = 1.7
+    repositories {
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
-}
-
-jar {
-    manifest {
-        attributes 'Main-Class': 'ArabicToRomanNumeralConverter'
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.11'
     }
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+project(':toRomanNumeral') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'src'
+                include 'ArabicToRomanNumeral*'
+            }
+        }
+    }
+    jar {
+        manifest {
+            attributes 'Main-Class': 'ArabicToRomanNumeralConverter'
+        }
+    }
 }
+
+project(':toArabic') {
+    sourceSets {
+        main {
+            java {
+                srcDir 'src'
+                include 'RomanToArabic*'
+            }
+        }
+    }
+    jar {
+        manifest {
+            attributes 'Main-Class': 'RomanToArabicConverter'
+        }
+    }
+}
+
+
