@@ -169,4 +169,13 @@ public class RomanToArabicConverterTest {
 
         assertEquals("Error: 'MMXXCCII' is not a roman numeral between I and MMMCMXCIX.  Please try again." + System.lineSeparator(), outContent.toString());
     }
+
+    @Test
+    public void whenGivenNoCommandLineArgumentWillDisplayAnErrorToTheConsole() {
+        RomanToArabicConverter.main(new String[0]);
+
+        assertEquals("Error: No argument received.  Please run this utility again with a roman numeral between I and MMMCMXCIX." + System.lineSeparator(),
+                outContent.toString());
+    }
+
 }

@@ -115,8 +115,12 @@ public class RomanToArabicConverter {
     }
 
     public static void main(String[] args) {
-        if ( ! args[0].matches("^(M*)?((CM)?(CD)?D?C*)?((XC)?(XL)?L?X*)?((IX)?(IV)?V?I*)?$")) {
+        if (args.length == 0) {
+            System.out.println("Error: No argument received.  Please run this utility again with a roman numeral between I and MMMCMXCIX.");
+
+        } else if ( ! args[0].matches("^(M*)?((CM)?(CD)?D?C*)?((XC)?(XL)?L?X*)?((IX)?(IV)?V?I*)?$")) {
             System.out.println ("Error: '" + args[0] + "' is not a roman numeral between I and MMMCMXCIX.  Please try again.");
+
         }
     }
 }
