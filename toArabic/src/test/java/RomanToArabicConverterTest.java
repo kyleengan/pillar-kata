@@ -11,4 +11,11 @@ public class RomanToArabicConverterTest {
 
         assertEquals(1, subject.convert("I"));
     }
+
+    @Test
+    public void shouldConvertIIto2() {
+        RomanToArabicConverter subject = new RomanToArabicConverter();
+
+        assertEquals(2, subject.convert("II"));
+    }
 }

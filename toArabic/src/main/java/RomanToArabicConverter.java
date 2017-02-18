@@ -2,7 +2,13 @@ public class RomanToArabicConverter {
 
 
     public int convert(String roman) {
-        return 1;
+        int returnVal = 0;
+        if (roman.equals("I")) {
+            returnVal = 1;
+        } else if (roman.equals("II")) {
+            returnVal = 2;
+        }
+        return returnVal;
     }
 
     public static void main(String[] args) {
