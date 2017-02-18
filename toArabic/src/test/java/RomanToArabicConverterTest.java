@@ -54,4 +54,16 @@ public class RomanToArabicConverterTest {
     public void shouldConvertXLTo40() {
         assertEquals(40, subject.convertTensDigit("XL"));
     }
+
+    @Test
+    public void shouldConvertXsAndLsAppropriately() {
+        assertEquals(10, subject.convertTensDigit("X"));
+        assertEquals(20, subject.convertTensDigit("XX"));
+        assertEquals(30, subject.convertTensDigit("XXX"));
+        assertEquals(40, subject.convertTensDigit("XL"));
+        assertEquals(50, subject.convertTensDigit("L"));
+        assertEquals(60, subject.convertTensDigit("LX"));
+        assertEquals(70, subject.convertTensDigit("LXX"));
+        assertEquals(80, subject.convertTensDigit("LXXX"));
+    }
 }

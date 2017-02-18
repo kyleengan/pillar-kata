@@ -16,6 +16,9 @@ public class RomanToArabicConverter {
         if (romanTensDigit.contains("XL")) {
             returnVal += 40;
             romanTensDigit = romanTensDigit.replaceAll("XL", "");
+        } else if (romanTensDigit.contains("L")) {
+            returnVal += 50;
+            romanTensDigit = romanTensDigit.replaceAll("L", "");
         }
 
         for (int c = 0; c < romanTensDigit.length(); c++) {
