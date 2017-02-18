@@ -7,6 +7,12 @@ public class RomanToArabicConverter {
         if (roman.contains("IV")) {
             returnVal += 4;
             roman = roman.replaceAll("IV", "");
+        } else if (roman.contains("V")) {
+            returnVal += 5;
+            roman = roman.replaceAll("V", "");
+        } else if (roman.contains("IX")) {
+            returnVal += 9;
+            roman = roman.replaceAll("IX", "");
         }
 
         for (int c = 0; c < roman.length(); c++) {
