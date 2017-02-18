@@ -108,4 +108,9 @@ public class RomanToArabicConverterTest {
         assertEquals(700, subject.convertHundredsDigit("DCC"));
         assertEquals(800, subject.convertHundredsDigit("DCCC"));
     }
+
+    @Test
+    public void shouldConvertCMTo900() {
+        assertEquals(900, subject.convertHundredsDigit("CM"));
+    }
 }
