@@ -22,6 +22,9 @@ public class RomanToArabicConverter {
         if (romanHundredsDigit.contains("CD")) {
             returnVal += 400;
             romanHundredsDigit = romanHundredsDigit.replaceAll("CD", "");
+        } else if (romanHundredsDigit.contains("D")) {
+            returnVal += 500;
+            romanHundredsDigit = romanHundredsDigit.replaceAll("D", "");
         }
 
         for (int c = 0; c < romanHundredsDigit.length(); c++) {

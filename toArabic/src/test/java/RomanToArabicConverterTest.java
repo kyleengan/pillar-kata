@@ -96,4 +96,16 @@ public class RomanToArabicConverterTest {
     public void shouldConvertCDTo400() {
         assertEquals(400, subject.convertHundredsDigit("CD"));
     }
+
+    @Test
+    public void shouldConvertCsAndDsAppropriately() {
+        assertEquals(100, subject.convertHundredsDigit("C"));
+        assertEquals(200, subject.convertHundredsDigit("CC"));
+        assertEquals(300, subject.convertHundredsDigit("CCC"));
+        assertEquals(400, subject.convertHundredsDigit("CD"));
+        assertEquals(500, subject.convertHundredsDigit("D"));
+        assertEquals(600, subject.convertHundredsDigit("DC"));
+        assertEquals(700, subject.convertHundredsDigit("DCC"));
+        assertEquals(800, subject.convertHundredsDigit("DCCC"));
+    }
 }
