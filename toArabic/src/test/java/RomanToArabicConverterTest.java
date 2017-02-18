@@ -66,4 +66,22 @@ public class RomanToArabicConverterTest {
         assertEquals(70, subject.convertTensDigit("LXX"));
         assertEquals(80, subject.convertTensDigit("LXXX"));
     }
+
+    @Test
+    public void shouldConvertXCTo90() {
+        assertEquals(90, subject.convertTensDigit("XC"));
+    }
+
+    @Test
+    public void shouldConvertTwoDigitNumbersAppropriately() {
+        assertEquals(11, subject.convert("XI"));
+        assertEquals(22, subject.convert("XXII"));
+        assertEquals(33, subject.convert("XXXIII"));
+        assertEquals(44, subject.convert("XLIV"));
+        assertEquals(55, subject.convert("LV"));
+        assertEquals(66, subject.convert("LXVI"));
+        assertEquals(77, subject.convert("LXXVII"));
+        assertEquals(88, subject.convert("LXXXVIII"));
+        assertEquals(99, subject.convert("XCIX"));
+    }
 }

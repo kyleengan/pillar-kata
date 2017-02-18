@@ -6,8 +6,16 @@ public class RomanToArabicConverter {
         int returnVal = 0;
 
         returnVal += convertOnesDigit(roman);
+        roman = truncateOnesDigit(roman);
+        returnVal += convertTensDigit(roman);
+
+
 
         return returnVal;
+    }
+
+    private String truncateOnesDigit(String roman) {
+        return roman.replaceAll("((IX)?(IV)?V?I*)", "");
     }
 
     public int convertTensDigit(String romanTensDigit) {
@@ -19,6 +27,9 @@ public class RomanToArabicConverter {
         } else if (romanTensDigit.contains("L")) {
             returnVal += 50;
             romanTensDigit = romanTensDigit.replaceAll("L", "");
+        } else if (romanTensDigit.contains("XC")) {
+            returnVal += 90;
+            romanTensDigit = romanTensDigit.replaceAll("XC", "");
         }
 
         for (int c = 0; c < romanTensDigit.length(); c++) {
