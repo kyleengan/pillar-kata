@@ -1,22 +1,31 @@
 public class RomanToArabicConverter {
 
 
+
     public int convert(String roman) {
         int returnVal = 0;
 
-        if (roman.contains("IV")) {
+        returnVal += convertOnesDigit(roman);
+
+        return returnVal;
+    }
+
+    public int convertOnesDigit(String romanOnesDigit) {
+        int returnVal = 0;
+
+        if (romanOnesDigit.contains("IV")) {
             returnVal += 4;
-            roman = roman.replaceAll("IV", "");
-        } else if (roman.contains("V")) {
+            romanOnesDigit = romanOnesDigit.replaceAll("IV", "");
+        } else if (romanOnesDigit.contains("V")) {
             returnVal += 5;
-            roman = roman.replaceAll("V", "");
-        } else if (roman.contains("IX")) {
+            romanOnesDigit = romanOnesDigit.replaceAll("V", "");
+        } else if (romanOnesDigit.contains("IX")) {
             returnVal += 9;
-            roman = roman.replaceAll("IX", "");
+            romanOnesDigit = romanOnesDigit.replaceAll("IX", "");
         }
 
-        for (int c = 0; c < roman.length(); c++) {
-            if (roman.charAt(c) == 'I') {
+        for (int c = 0; c < romanOnesDigit.length(); c++) {
+            if (romanOnesDigit.charAt(c) == 'I') {
                 returnVal++;
             }
         }
@@ -25,7 +34,9 @@ public class RomanToArabicConverter {
     }
 
     public static void main(String[] args) {
+        /// UNTESTED TEMPORARY CODE
         RomanToArabicConverter converter = new RomanToArabicConverter();
         System.out.println(converter.convert(args[0]));
+        /// UNTESTED TEMPORARY CODE
     }
 }
