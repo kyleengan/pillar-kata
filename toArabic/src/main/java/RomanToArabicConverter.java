@@ -22,6 +22,18 @@ public class RomanToArabicConverter {
         return roman.replaceAll("((XC)?(XL)?L?X*)", "");
     }
 
+    public int convertThousandsDigit(String romanThousandsDigit) {
+        int returnVal = 0;
+
+        for (int c = 0; c < romanThousandsDigit.length(); c++) {
+            if (romanThousandsDigit.charAt(c) == 'M') {
+                returnVal += 1000;
+            }
+        }
+
+        return returnVal;
+    }
+
     public int convertHundredsDigit(String romanHundredsDigit) {
         int returnVal = 0;
 

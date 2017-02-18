@@ -126,4 +126,11 @@ public class RomanToArabicConverterTest {
         assertEquals(888, subject.convert("DCCCLXXXVIII"));
         assertEquals(999, subject.convert("CMXCIX"));
     }
+
+    @Test
+    public void shouldConvertMsAppropriately() {
+        assertEquals(1000, subject.convertThousandsDigit("M"));
+        assertEquals(2000, subject.convertThousandsDigit("MM"));
+        assertEquals(3000, subject.convertThousandsDigit("MMM"));
+    }
 }
