@@ -14,12 +14,9 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertITo1() {
+    public void shouldConvertIsApproriately() {
         assertEquals(1, subject.convert("I"));
-    }
-
-    @Test
-    public void shouldConvertIIto2() {
         assertEquals(2, subject.convert("II"));
+        assertEquals(3, subject.convert("III"));
     }
 }

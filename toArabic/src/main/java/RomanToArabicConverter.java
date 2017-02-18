@@ -3,10 +3,10 @@ public class RomanToArabicConverter {
 
     public int convert(String roman) {
         int returnVal = 0;
-        if (roman.equals("I")) {
-            returnVal = 1;
-        } else if (roman.equals("II")) {
-            returnVal = 2;
+        for (int c = 0; c < roman.length(); c++) {
+            if (roman.charAt(c) == 'I') {
+                returnVal++;
+            }
         }
         return returnVal;
     }
