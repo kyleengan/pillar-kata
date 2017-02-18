@@ -133,4 +133,11 @@ public class RomanToArabicConverterTest {
         assertEquals(2000, subject.convertThousandsDigit("MM"));
         assertEquals(3000, subject.convertThousandsDigit("MMM"));
     }
+
+    @Test
+    public void shouldConvertFourDigitNumbersAppropriately() {
+        assertEquals(1111, subject.convert("MCXI"));
+        assertEquals(2222, subject.convert("MMCCXXII"));
+        assertEquals(3333, subject.convert("MMMCCCXXXIII"));
+    }
 }

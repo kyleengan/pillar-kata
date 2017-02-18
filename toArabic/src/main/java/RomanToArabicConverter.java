@@ -7,9 +7,14 @@ public class RomanToArabicConverter {
 
         returnVal += convertOnesDigit(roman);
         roman = truncateOnesDigit(roman);
+
         returnVal += convertTensDigit(roman);
         roman = truncateTensDigit(roman);
+
         returnVal += convertHundredsDigit(roman);
+        roman = truncateHundredsDigit(roman);
+
+        returnVal += convertThousandsDigit(roman);
 
         return returnVal;
     }
@@ -20,6 +25,10 @@ public class RomanToArabicConverter {
 
     private String truncateTensDigit(String roman) {
         return roman.replaceAll("((XC)?(XL)?L?X*)", "");
+    }
+
+    private String truncateHundredsDigit(String roman) {
+        return roman.replaceAll("((CM)?(CD)?D?C*)", "");
     }
 
     public int convertThousandsDigit(String romanThousandsDigit) {
