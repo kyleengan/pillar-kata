@@ -13,13 +13,18 @@ public class RomanToArabicConverter {
     public int convertTensDigit(String romanTensDigit) {
         int returnVal = 0;
 
+        if (romanTensDigit.contains("XL")) {
+            returnVal += 40;
+            romanTensDigit = romanTensDigit.replaceAll("XL", "");
+        }
+
         for (int c = 0; c < romanTensDigit.length(); c++) {
             if (romanTensDigit.charAt(c) == 'X') {
-                returnVal++;
+                returnVal += 10;
             }
         }
 
-        return returnVal * 10;
+        return returnVal;
     }
 
     public int convertOnesDigit(String romanOnesDigit) {

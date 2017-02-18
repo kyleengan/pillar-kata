@@ -49,4 +49,9 @@ public class RomanToArabicConverterTest {
         assertEquals(20, subject.convertTensDigit("XX"));
         assertEquals(30, subject.convertTensDigit("XXX"));
     }
+
+    @Test
+    public void shouldConvertXLTo40() {
+        assertEquals(40, subject.convertTensDigit("XL"));
+    }
 }
