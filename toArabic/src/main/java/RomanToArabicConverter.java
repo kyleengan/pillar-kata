@@ -10,6 +10,18 @@ public class RomanToArabicConverter {
         return returnVal;
     }
 
+    public int convertTensDigit(String romanTensDigit) {
+        int returnVal = 0;
+
+        for (int c = 0; c < romanTensDigit.length(); c++) {
+            if (romanTensDigit.charAt(c) == 'X') {
+                returnVal++;
+            }
+        }
+
+        return returnVal * 10;
+    }
+
     public int convertOnesDigit(String romanOnesDigit) {
         int returnVal = 0;
 

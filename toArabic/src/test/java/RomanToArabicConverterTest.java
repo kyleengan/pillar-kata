@@ -42,4 +42,11 @@ public class RomanToArabicConverterTest {
     public void shouldConvertIXTo9() {
         assertEquals(9, subject.convertOnesDigit("IX"));
     }
+
+    @Test
+    public void shouldConvertXsAppropriately() {
+        assertEquals(10, subject.convertTensDigit("X"));
+        assertEquals(20, subject.convertTensDigit("XX"));
+        assertEquals(30, subject.convertTensDigit("XXX"));
+    }
 }
