@@ -8,12 +8,18 @@ public class RomanToArabicConverter {
         returnVal += convertOnesDigit(roman);
         roman = truncateOnesDigit(roman);
         returnVal += convertTensDigit(roman);
+        roman = truncateTensDigit(roman);
+        returnVal += convertHundredsDigit(roman);
 
         return returnVal;
     }
 
     private String truncateOnesDigit(String roman) {
         return roman.replaceAll("((IX)?(IV)?V?I*)", "");
+    }
+
+    private String truncateTensDigit(String roman) {
+        return roman.replaceAll("((XC)?(XL)?L?X*)", "");
     }
 
     public int convertHundredsDigit(String romanHundredsDigit) {

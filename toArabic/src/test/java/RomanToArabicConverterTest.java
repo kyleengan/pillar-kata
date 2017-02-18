@@ -113,4 +113,17 @@ public class RomanToArabicConverterTest {
     public void shouldConvertCMTo900() {
         assertEquals(900, subject.convertHundredsDigit("CM"));
     }
+
+    @Test
+    public void shouldConvertThreeDigitNumbersAppropriately() {
+        assertEquals(111, subject.convert("CXI"));
+        assertEquals(222, subject.convert("CCXXII"));
+        assertEquals(333, subject.convert("CCCXXXIII"));
+        assertEquals(444, subject.convert("CDXLIV"));
+        assertEquals(555, subject.convert("DLV"));
+        assertEquals(666, subject.convert("DCLXVI"));
+        assertEquals(777, subject.convert("DCCLXXVII"));
+        assertEquals(888, subject.convert("DCCCLXXXVIII"));
+        assertEquals(999, subject.convert("CMXCIX"));
+    }
 }
