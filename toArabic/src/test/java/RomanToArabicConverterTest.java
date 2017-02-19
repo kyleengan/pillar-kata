@@ -178,4 +178,22 @@ public class RomanToArabicConverterTest {
                 outContent.toString());
     }
 
+
+    @Test
+    public void whenRunWithMoreThanOneArgument_willOutputAnErrorToConsole() {
+        RomanToArabicConverter.main(new String[2]);
+
+        assertEquals("Error: Too many arguments received.  Please run this utility again with a roman numeral between I and MMMCMXCIX." + System.lineSeparator(),
+                outContent.toString());
+    }
+
+    @Test
+    public void whenRunWithARomanNumeralBetween1And3999_willOutputResultToConsole() {
+        String[] args = {"MMCCXXII"};
+
+        RomanToArabicConverter.main(args);
+
+        assertEquals("2222" + System.lineSeparator(), outContent.toString());
+    }
+
 }
