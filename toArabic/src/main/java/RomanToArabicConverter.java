@@ -1,7 +1,5 @@
 public class RomanToArabicConverter {
 
-
-
     public int convert(String roman) {
         int returnVal = 0;
 
@@ -33,81 +31,94 @@ public class RomanToArabicConverter {
         return roman.replaceAll("((CM)?(CD)?D?C*)", "");
     }
 
-    public int convertThousandsDigit(String romanThousandsDigit) {
+    protected int convertThousandsDigit(String romanThousandsDigit) {
         int returnVal = 0;
 
         for (int c = 0; c < romanThousandsDigit.length(); c++) {
             if (romanThousandsDigit.charAt(c) == 'M') {
                 returnVal += 1000;
+
             }
         }
 
         return returnVal;
     }
 
-    public int convertHundredsDigit(String romanHundredsDigit) {
+    protected int convertHundredsDigit(String romanHundredsDigit) {
         int returnVal = 0;
 
         if (romanHundredsDigit.contains("CD")) {
             returnVal += 400;
             romanHundredsDigit = romanHundredsDigit.replaceAll("CD", "");
+
         } else if (romanHundredsDigit.contains("D")) {
             returnVal += 500;
             romanHundredsDigit = romanHundredsDigit.replaceAll("D", "");
+
         } else if (romanHundredsDigit.contains("CM")) {
             returnVal += 900;
             romanHundredsDigit = romanHundredsDigit.replaceAll("CM", "");
+
         }
 
         for (int c = 0; c < romanHundredsDigit.length(); c++) {
             if (romanHundredsDigit.charAt(c) == 'C') {
                 returnVal += 100;
+
             }
         }
 
         return returnVal;
     }
 
-    public int convertTensDigit(String romanTensDigit) {
+    protected int convertTensDigit(String romanTensDigit) {
         int returnVal = 0;
 
         if (romanTensDigit.contains("XL")) {
             returnVal += 40;
             romanTensDigit = romanTensDigit.replaceAll("XL", "");
+
         } else if (romanTensDigit.contains("L")) {
             returnVal += 50;
             romanTensDigit = romanTensDigit.replaceAll("L", "");
+
         } else if (romanTensDigit.contains("XC")) {
             returnVal += 90;
             romanTensDigit = romanTensDigit.replaceAll("XC", "");
+
         }
 
         for (int c = 0; c < romanTensDigit.length(); c++) {
             if (romanTensDigit.charAt(c) == 'X') {
                 returnVal += 10;
+
             }
         }
 
         return returnVal;
     }
 
-    public int convertOnesDigit(String romanOnesDigit) {
+    protected int convertOnesDigit(String romanOnesDigit) {
         int returnVal = 0;
 
         if (romanOnesDigit.contains("IV")) {
             returnVal += 4;
             romanOnesDigit = romanOnesDigit.replaceAll("IV", "");
+
         } else if (romanOnesDigit.contains("V")) {
             returnVal += 5;
             romanOnesDigit = romanOnesDigit.replaceAll("V", "");
+
         } else if (romanOnesDigit.contains("IX")) {
             returnVal += 9;
             romanOnesDigit = romanOnesDigit.replaceAll("IX", "");
+
         }
 
         for (int c = 0; c < romanOnesDigit.length(); c++) {
             if (romanOnesDigit.charAt(c) == 'I') {
                 returnVal++;
+
             }
         }
 
@@ -127,6 +138,7 @@ public class RomanToArabicConverter {
         } else {
             RomanToArabicConverter converter = new RomanToArabicConverter();
             System.out.println(converter.convert(args[0]));
+
         }
     }
 }

@@ -24,28 +24,49 @@ public class ArabicToRomanNumeralConverter {
         }
     }
 
-    public String convertToRomanNumeral(int input) {
+    protected String convertToRomanNumeral(int input) {
         String returnValue;
 
-        int onesDigit = input % 10;
-        returnValue = convertArabicOnesDigitToRomanNumeral(onesDigit);
+        returnValue = convertArabicOnesDigitToRomanNumeral(extractOnesDigit(input));
+        input -= truncateOnesDigit(input);
 
-        input -= input % 10;
+        returnValue = convertArabicTensDigitToRomanNumeral(extractTensDigit(input)) + returnValue;
+        input -= truncateTensDigit(input);
 
-        int tensDigit = input % 100 / 10;
-        returnValue = convertArabicTensDigitToRomanNumeral(tensDigit) + returnValue;
+        returnValue = convertArabicHundredsDigitToRomanNumeral(extractHundredsDigit(input)) + returnValue;
+        input -= truncateHundredsDigit(input);
 
-        input -= input % 100;
-
-        int hundredsDigit = input % 1000 / 100;
-        returnValue = convertArabicHundredsDigitToRomanNumeral(hundredsDigit) + returnValue;
-
-        input -= input % 1000;
-
-        int thousandsDigit = input % 10000 / 1000;
-        returnValue = convertArabicThousandsDigitToRomanNumeral(thousandsDigit) + returnValue;
+        returnValue = convertArabicThousandsDigitToRomanNumeral(extractThousandsDigit(input)) + returnValue;
 
         return returnValue;
+    }
+
+    private int truncateOnesDigit(int input) {
+        return input % 10;
+    }
+
+    private int truncateTensDigit(int input) {
+        return input % 100;
+    }
+
+    private int truncateHundredsDigit(int input) {
+        return input % 1000;
+    }
+
+    private int extractOnesDigit(int input) {
+        return input % 10;
+    }
+
+    private int extractTensDigit(int input) {
+        return input % 100 / 10;
+    }
+
+    private int extractHundredsDigit(int input) {
+        return input % 1000 / 100;
+    }
+
+    private int extractThousandsDigit(int input) {
+        return input % 10000 / 1000;
     }
 
     protected String convertArabicThousandsDigitToRomanNumeral(int thousandsDigit) {
@@ -70,11 +91,14 @@ public class ArabicToRomanNumeralConverter {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.out.println("Error: No argument received.  Please run this utility again with a number between 1 and 3,999");
+
         } else if (args.length > 1) {
             System.out.println("Error: Too many arguments received.  Please run this utility again with a number between 1 and 3,999");
+
         } else {
             ArabicToRomanNumeralConverter converter = new ArabicToRomanNumeralConverter();
             converter.run(args[0]);
+
         }
     }
 }
