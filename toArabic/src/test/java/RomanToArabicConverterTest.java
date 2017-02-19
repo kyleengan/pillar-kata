@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
 
 import static org.junit.Assert.*;
@@ -24,6 +25,11 @@ public class RomanToArabicConverterTest {
     @After
     public void cleanup() {
         System.setOut(null);
+        try {
+            outContent.close();
+        } catch (IOException ioe) {
+
+        }
     }
 
     @Test
