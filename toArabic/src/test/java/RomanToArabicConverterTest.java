@@ -27,6 +27,133 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
+    public void IS_ROMAN_ONES_DIGIT_REGEX_shouldMatchAllValuesOfOnesDigit() {
+        assertTrue("I".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("II".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("III".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("IV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("V".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("VI".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("VII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("VIII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertTrue("IX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_ONES_DIGIT_REGEX_shouldNotMatchNonOnesDigitNumerals() {
+        assertFalse("X".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("XL".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("L".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("XC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("C".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("CD".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("D".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("CM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+        assertFalse("M".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_TENS_DIGIT_REGEX_shouldMatchAllValuesOfTensDigit() {
+        assertTrue("X".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("XX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("XXX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("XL".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("L".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("LX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("LXX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("LXXX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertTrue("XC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_TENS_DIGIT_REGEX_shouldNotMatchNonTensDigitNumerals() {
+        assertFalse("I".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("IV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("V".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("IX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("C".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("CD".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("D".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("CM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+        assertFalse("M".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_HUNDREDS_DIGIT_REGEX_shouldMatchAllValuesOfHundredsDigit() {
+        assertTrue("C".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("CC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("CCC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("CD".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("D".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("DC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("DCC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("DCCC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertTrue("CM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_HUNDREDS_DIGIT_REGEX_shouldNotMatchNonHundredsDigitNumerals() {
+        assertFalse("X".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("XL".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("L".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("XC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("I".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("IV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("V".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("IX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+        assertFalse("M".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_THOUSANDS_DIGIT_REGEX_shouldMatchAllValuesOfThousandsDigit() {
+        assertTrue("M".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertTrue("MM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertTrue("MMM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_THOUSANDS_DIGIT_REGEX_shouldNotMatchNonThousandsDigitNumerals() {
+        assertFalse("I".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("IV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("V".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("IX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("X".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("XL".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("L".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("XC".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("C".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("CD".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("D".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+        assertFalse("CM".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_NUMERAL_REGEX_shouldMatchSelectedValidRomanNumerals() {
+        assertTrue("MCXI".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMCCXXII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMMCCCXXXIII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MCDXLIV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMDLV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMMDCLXVI".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MDCCLXXVII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMDCCCLXXXVIII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertTrue("MMMCMXCIX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+    }
+
+    @Test
+    public void IS_ROMAN_NUMERAL_REGEX_shouldNotMatchSelectedMalformedRomanNumerals() {
+        assertFalse("MXXCI".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("CMMCXXII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("CMCMXXXIII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("MCDXLIVIV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("MMDLVV".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("MMMDCXLXVI".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("MDMCCLXXVII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("IMDCCCLXXXVIII".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+        assertFalse("MMMMCMXCIX".matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX));
+    }
+
+    @Test
     public void givenIs_shouldReturnCorrectValues() {
         assertEquals(1, subject.convertOnesDigit("I"));
         assertEquals(2, subject.convertOnesDigit("II"));

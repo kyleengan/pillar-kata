@@ -1,5 +1,16 @@
 public class RomanToArabicConverter {
 
+    public static final String IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX = "((IX|IV)|(V?I{0,3}))";
+    public static final String IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX = "((XC|XL)|(L?X{0,3}))";
+    public static final String IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX = "((CM|CD)|(D?C{0,3}))";
+    public static final String IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX = "(M{0,3})";
+
+    public static final String IS_ROMAN_NUMERAL_REGEX = "^"
+            + IS_ROMAN_NUMERAL_THOUSANDS_DIGIT_REGEX + "?"
+            + IS_ROMAN_NUMERAL_HUNDREDS_DIGIT_REGEX + "?"
+            + IS_ROMAN_NUMERAL_TENS_DIGIT_REGEX + "?"
+            + IS_ROMAN_NUMERAL_ONES_DIGIT_REGEX + "?$";
+
     public int convert(String roman) {
         int returnVal = 0;
 
@@ -37,7 +48,6 @@ public class RomanToArabicConverter {
         for (int c = 0; c < romanThousandsDigit.length(); c++) {
             if (romanThousandsDigit.charAt(c) == 'M') {
                 returnVal += 1000;
-
             }
         }
 
@@ -64,7 +74,6 @@ public class RomanToArabicConverter {
         for (int c = 0; c < romanHundredsDigit.length(); c++) {
             if (romanHundredsDigit.charAt(c) == 'C') {
                 returnVal += 100;
-
             }
         }
 
@@ -91,7 +100,6 @@ public class RomanToArabicConverter {
         for (int c = 0; c < romanTensDigit.length(); c++) {
             if (romanTensDigit.charAt(c) == 'X') {
                 returnVal += 10;
-
             }
         }
 
@@ -118,7 +126,6 @@ public class RomanToArabicConverter {
         for (int c = 0; c < romanOnesDigit.length(); c++) {
             if (romanOnesDigit.charAt(c) == 'I') {
                 returnVal++;
-
             }
         }
 
@@ -132,7 +139,7 @@ public class RomanToArabicConverter {
         } else if (args.length > 1) {
             System.out.println("Error: Too many arguments received.  Please run this utility again with a roman numeral between I and MMMCMXCIX.");
 
-        } else if ( ! args[0].matches("^(M*)?((CM)?(CD)?D?C*)?((XC)?(XL)?L?X*)?((IX)?(IV)?V?I*)?$")) {
+        } else if ( ! args[0].toUpperCase().matches(RomanToArabicConverter.IS_ROMAN_NUMERAL_REGEX)) {
             System.out.println ("Error: '" + args[0] + "' is not a roman numeral between I and MMMCMXCIX.  Please try again.");
 
         } else {
