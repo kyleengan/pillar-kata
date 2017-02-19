@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
@@ -20,20 +21,25 @@ public class RomanToArabicConverterTest {
         System.setOut(new PrintStream(outContent));
     }
 
+    @After
+    public void cleanup() {
+        System.setOut(null);
+    }
+
     @Test
-    public void shouldConvertIsApproriately() {
+    public void givenIs_shouldReturnCorrectValues() {
         assertEquals(1, subject.convertOnesDigit("I"));
         assertEquals(2, subject.convertOnesDigit("II"));
         assertEquals(3, subject.convertOnesDigit("III"));
     }
 
     @Test
-    public void shouldConvertIVTo4() {
+    public void givenIV_shouldReturn4() {
         assertEquals(4, subject.convertOnesDigit("IV"));
     }
 
     @Test
-    public void shouldConvertIsAndVsAppropriately() {
+    public void givenMixesOfIsAndVs_shouldReturnCorrectValues() {
         assertEquals(1, subject.convertOnesDigit("I"));
         assertEquals(2, subject.convertOnesDigit("II"));
         assertEquals(3, subject.convertOnesDigit("III"));
@@ -45,24 +51,24 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertIXTo9() {
+    public void givenIX_shouldReturn9() {
         assertEquals(9, subject.convertOnesDigit("IX"));
     }
 
     @Test
-    public void shouldConvertXsAppropriately() {
+    public void givenXs_shouldReturnCorrectValues() {
         assertEquals(10, subject.convertTensDigit("X"));
         assertEquals(20, subject.convertTensDigit("XX"));
         assertEquals(30, subject.convertTensDigit("XXX"));
     }
 
     @Test
-    public void shouldConvertXLTo40() {
+    public void givenXL_shouldReturn40() {
         assertEquals(40, subject.convertTensDigit("XL"));
     }
 
     @Test
-    public void shouldConvertXsAndLsAppropriately() {
+    public void givenMixesOfXsAndLs_shouldReturnCorrectValues() {
         assertEquals(10, subject.convertTensDigit("X"));
         assertEquals(20, subject.convertTensDigit("XX"));
         assertEquals(30, subject.convertTensDigit("XXX"));
@@ -74,12 +80,12 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertXCTo90() {
+    public void givenXC_shouldReturn90() {
         assertEquals(90, subject.convertTensDigit("XC"));
     }
 
     @Test
-    public void shouldConvertTwoDigitNumbersAppropriately() {
+    public void givenSelectedTwoDigitNumbers_shouldReturnCorrectValues() {
         assertEquals(11, subject.convert("XI"));
         assertEquals(22, subject.convert("XXII"));
         assertEquals(33, subject.convert("XXXIII"));
@@ -92,19 +98,19 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertCsAppropriately() {
+    public void givenCs_shouldReturnCorrectValues() {
         assertEquals(100, subject.convertHundredsDigit("C"));
         assertEquals(200, subject.convertHundredsDigit("CC"));
         assertEquals(300, subject.convertHundredsDigit("CCC"));
     }
 
     @Test
-    public void shouldConvertCDTo400() {
+    public void givenCD_shouldReturn400() {
         assertEquals(400, subject.convertHundredsDigit("CD"));
     }
 
     @Test
-    public void shouldConvertCsAndDsAppropriately() {
+    public void givenMixesOfCsAndDs_shouldReturnCorrectValues() {
         assertEquals(100, subject.convertHundredsDigit("C"));
         assertEquals(200, subject.convertHundredsDigit("CC"));
         assertEquals(300, subject.convertHundredsDigit("CCC"));
@@ -116,12 +122,12 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertCMTo900() {
+    public void givenCM_shouldReturn900() {
         assertEquals(900, subject.convertHundredsDigit("CM"));
     }
 
     @Test
-    public void shouldConvertThreeDigitNumbersAppropriately() {
+    public void givenSelectedThreeDigitNumbers_shouldReturnCorrectValues() {
         assertEquals(111, subject.convert("CXI"));
         assertEquals(222, subject.convert("CCXXII"));
         assertEquals(333, subject.convert("CCCXXXIII"));
@@ -134,26 +140,26 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void shouldConvertMsAppropriately() {
+    public void givenMs_shouldReturnCorrectValues() {
         assertEquals(1000, subject.convertThousandsDigit("M"));
         assertEquals(2000, subject.convertThousandsDigit("MM"));
         assertEquals(3000, subject.convertThousandsDigit("MMM"));
     }
 
     @Test
-    public void shouldConvertFourDigitNumbersAppropriately() {
+    public void givenSelectedFourDigitNumbers_shouldReturnCorrectValues() {
         assertEquals(1111, subject.convert("MCXI"));
         assertEquals(2222, subject.convert("MMCCXXII"));
         assertEquals(3333, subject.convert("MMMCCCXXXIII"));
     }
 
     @Test
-    public void shouldBeCaseInsensitive() {
+    public void givenMixedCaseInput_shouldReturnCorrectValue() {
         assertEquals(3888, subject.convert("mMmdcCclxXxviIi"));
     }
 
     @Test
-    public void whenGivenANonRomanNumeralShouldDisplayAnErrorToTheConsole() {
+    public void givenANonRomanNumeral_shouldDisplayAnErrorToTheConsole() {
         String[] args = {"moohaha"};
 
         RomanToArabicConverter.main(args);
@@ -162,7 +168,7 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void whenGivenABadRomanNumeralShouldDisplayAnErrorToTheConsole() {
+    public void givenAnInvalidRomanNumeral_shouldDisplayAnErrorToTheConsole() {
         String[] args = {"MMXXCCII"};
 
         RomanToArabicConverter.main(args);
@@ -171,7 +177,7 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void whenGivenNoCommandLineArgumentWillDisplayAnErrorToTheConsole() {
+    public void givenNoCommandLineArgument_shouldDisplayAnErrorToTheConsole() {
         RomanToArabicConverter.main(new String[0]);
 
         assertEquals("Error: No argument received.  Please run this utility again with a roman numeral between I and MMMCMXCIX." + System.lineSeparator(),
@@ -180,7 +186,7 @@ public class RomanToArabicConverterTest {
 
 
     @Test
-    public void whenRunWithMoreThanOneArgument_willOutputAnErrorToConsole() {
+    public void whenRunWithMoreThanOneArgument_shouldOutputAnErrorToConsole() {
         RomanToArabicConverter.main(new String[2]);
 
         assertEquals("Error: Too many arguments received.  Please run this utility again with a roman numeral between I and MMMCMXCIX." + System.lineSeparator(),
@@ -188,7 +194,7 @@ public class RomanToArabicConverterTest {
     }
 
     @Test
-    public void whenRunWithARomanNumeralBetween1And3999_willOutputResultToConsole() {
+    public void whenRunWithARomanNumeralBetween1And3999_shouldOutputResultToConsole() {
         String[] args = {"MMCCXXII"};
 
         RomanToArabicConverter.main(args);
